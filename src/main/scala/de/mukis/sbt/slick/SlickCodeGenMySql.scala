@@ -22,7 +22,7 @@ object SlickCodeGenMySql extends AutoPlugin {
       val port = slickPort.value
       val user = slickUser.value map (u => s"user=$u")
       val pass = slickPassword.value map (p => s"password=$p")
-      val paramsList = List(user, pass).flatten
+      val paramsList = List(user, pass).flatten ++ (slickExtraParams map {case (k, v) => s"$k=$v"})
       val params = if (paramsList.isEmpty) "" else "?" + (paramsList mkString "&")
       s"jdbc:mysql://$hostName:$port/$db$params"
     },
