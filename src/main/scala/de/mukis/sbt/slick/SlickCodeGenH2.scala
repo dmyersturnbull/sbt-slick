@@ -15,7 +15,7 @@ object SlickCodeGenH2 extends AutoPlugin {
     slickDriver := "slick.driver.H2Driver",
     slickJdbcDriver := "org.h2.Driver",
     slickUrl := { db =>
-      s"jdbc:h2:mem${db.map(":" + _) getOrElse ""}"
+      s"jdbc:h2:mem${db.map(":" + _) getOrElse ""}${if (slickExtraParams.isEmpty) "" else ";" + slickExtraParams mkString ";"}"
     },
     slickCallForm := CallForm.WithoutCredentials
   )

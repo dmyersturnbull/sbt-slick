@@ -28,7 +28,7 @@ trait Keys {
   val slickPort = TaskKey[Int]("slick-port", "Port to access database")
   val slickDatabases = SettingKey[Seq[String]]("slick-databases", "databases to generate tables for")
   val slickPackage = SettingKey[String]("slick-package", "Output package for Tables.scala")
-  val slickExtraParams = SettingKey[Map[String, String]]("slick-extra-options", "Additional parameters in the connection URL; currently only applies to MySQL")
+  val slickExtraParams = SettingKey[Map[String, String]]("slick-extra-options", "Additional parameters in the connection URL")
   val slickMakeDbPackage = TaskKey[MakePackage]("slick-db-package", "Call for each database to generate the package name")
   val slickGenTables = TaskKey[Seq[File]]("slick-gen-tables", "Task to generate the table")
 }
